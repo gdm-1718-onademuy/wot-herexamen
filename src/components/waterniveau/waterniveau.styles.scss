@@ -2,50 +2,13 @@
     font-weight: 500;
     padding: 15px 0px 0px 0px;
     height: 60px;
-    //margin: 5px 30px;
+    margin: 5px 30px;
     border-radius: 10px;
     font-weight: 500;
     box-shadow: 0px 4px 10px grey;
 }
 
-.green {
-    background-color: #44C67B;
-}
-
-.red {
-    background-color: #D13000;
-    //animation: blinker 1.5s ease infinite;
-    box-shadow: 0px 4px 10px grey;
-}
-
-.grey {
-    background-color: #C7C7C7;
-    animation: blinker 1.5s ease infinite;
-    box-shadow: 0px 4px 10px grey;
-}
-
-
-@keyframes blinker {
-    50% {
-      opacity: 0;
-    }
-  }
-
-.title {
-    color: white;
-    font-weight: bold;
-    //padding: 5px 0px 0px;
-}
-
-.status {
-    font-size: 13px;
-    text-align: center;
-    letter-spacing: 0.05em;
-    padding: 5px 20px;
-    color: #464646;
-}
-
-.statuswhite {
+.omschrijvingwhite {
     font-size: 13px;
     text-align: center;
     letter-spacing: 0.05em;

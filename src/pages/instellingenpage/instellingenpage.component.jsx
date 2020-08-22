@@ -56,7 +56,7 @@ class Instellingenpage extends React.Component {
 
         return(
             <div className='instellingenpage'>
-                <div className="pagetitlegrey">INSTELLINGEN</div>
+                <div className="pagetitle grijs">INSTELLINGEN</div>
                 <div className="back"><Link to='/'>Ga terug</Link></div>
                 <div className="form-name">
                     <div className="nametag">Naam</div>

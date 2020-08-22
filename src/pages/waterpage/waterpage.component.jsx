@@ -104,22 +104,22 @@ class Waterpage extends React.Component {
 
         return(
             <div className='waterpage'>
-                <div className="pagetitle">WATERTOEVOER</div>
+                <div className="pagetitle green">WATERTOEVOER</div>
                 <div className="back"><Link to='/'>Ga terug</Link></div>
                 
                     <form onSubmit={this.handleSubmit} className= {bijvullen ? "changes aan" : "changes uit"}>
                         {bijvullen ?
-                            <input type="submit" className="manueel oranje" value="MANUEEL BIJVULLEN"/>
+                            <input type="submit" className="boodschap manueel oranje" value="MANUEEL BIJVULLEN"/>
                         :
-                            <input type="submit" className="manueel oranje" value="MANUEEL BIJVULLEN"/>
+                            <input type="submit" className="boodschap manueel oranje" value="MANUEEL BIJVULLEN"/>
                         }
                     </form>
 
                     <form onSubmit={this.stopzetten} className= {stopzetten ? "changes aan" : "changes uit"}>
                     {stopzetten ?
-                        <input type="submit" className="stopzetten rood" value="SYSTEEM UITGESCHAKELD"/>
+                        <input type="submit" className="boodschap stopzetten rood" value="SYSTEEM UITGESCHAKELD"/>
                     :
-                        <input type="submit" className="stopzetten groen" value="SYSTEEM AUTOMATISCH"/>
+                        <input type="submit" className="boodschap stopzetten groen" value="SYSTEEM AUTOMATISCH"/>
                     }
                             </form>
 

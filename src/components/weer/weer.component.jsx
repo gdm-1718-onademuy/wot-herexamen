@@ -1,7 +1,5 @@
 import React from 'react';
 import './weer.styles.scss';
-//import droplet from '../../images/droplet.svg';
-//import droplet2 from '../../images/droplet2.svg';
 import dropletfilled from '../../images/droplet-filled.svg';
 
 class Weer extends React.Component {

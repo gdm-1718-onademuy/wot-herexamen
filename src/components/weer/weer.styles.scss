@@ -2,7 +2,7 @@
     background-color: #A3CDFF;
     height: 180px;
     padding: 15px 0px;
-    margin: 10px 0px 0px;
+    margin: 5px 30px 5px 30px;
     border-radius: 10px;
     font-weight: 500;
     box-shadow: 0px 4px 10px grey;
@@ -13,7 +13,6 @@
     display: flex;
     flex-direction: row;
     margin: 15px 0px;
-
 }
 
 .aantalgraden {
@@ -32,7 +31,6 @@
     padding: 5px 0px 0px 0px;
     font-size: 12px;
     text-align: right;
-    //letter-spacing: 0.05em;
 }
 
 .weersverw {
@@ -40,7 +38,6 @@
     font-size: 12px;
     letter-spacing: 0.05em;
     text-align: center;
-    padding: 10px 30px 0px;
     font-weight: 700;
 }
 
@@ -49,38 +46,28 @@
     display: flex;
     flex-direction: row;
     padding: 5px 25px;
-    //letter-spacing: 0.05em;
 }
 
 .element {
     box-sizing: border-box;
-    //margin: 0px 7px;
-    //width: 55px;
     margin: 8px 0px;
     width: 25%;
-    //text-align: left;
-
     .Dag {
         font-size: 10px;
         letter-spacing: 0.05em;
     }
-
     .Graden {
         font-size: 14px;
         margin: 2px;
         letter-spacing: 0.05em;
-
     }
-
     .regen {
         font-size: 8px;
         letter-spacing: 0.05em;
-
     }
 }
 
 .droplet {
     width: 5px;
     height: 5px;
-    //height: 8%;
 }

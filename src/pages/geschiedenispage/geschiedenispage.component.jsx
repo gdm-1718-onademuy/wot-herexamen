@@ -35,7 +35,7 @@ class Geschiedenispage extends React.Component {
 
         return(
             <div className='instellingenpage'>
-                <div className="pagetitleyellow">GESCHIEDENIS</div>
+                <div className="pagetitle yellow">GESCHIEDENIS</div>
                 <div className="back"><Link to='/waterniveau'>Ga terug</Link></div>
 
             <div className="tablesettings">

@@ -39,17 +39,17 @@ class Waterniveau extends React.Component {
                     {stopzetten === false ? 
                         <div className='waterniveau green'>
                             <div className="title">WATERTOEVOER</div>
-                            <div className="status">STATUS: Systeem is ingeschakeld </div>
+                            <div className="omschrijving">STATUS: Systeem is ingeschakeld </div>
                         </div>
                     : stopzetten === true ? 
                         <div className='waterniveau red'>
                             <div className="title">WATERTOEVOER</div>
-                            <div className="statuswhite">STATUS: Systeem is uitgeschakeld </div>
+                            <div className="omschrijvingwhite">STATUS: Systeem is uitgeschakeld </div>
                         </div> 
                     :
                         <div className='waterniveau grey'>
                             <div className="title">WATERTOEVOER</div>
-                            <div className="statuswhite">ERROR: Controleer de verbinding </div>
+                            <div className="omschrijving">ERROR: Controleer de verbinding </div>
                         </div> 
                     }
             </div>
