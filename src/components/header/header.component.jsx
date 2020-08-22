@@ -7,26 +7,24 @@ class Header extends React.Component {
         super(props);
         this.state = {
             hour: null,
-            user: "Luc",
-            items: [],
+            users: [],
         }
     }
 
     componentDidMount() {
         this.getHour();
 
-        var items = [];
+        var users = [];
         firebase
         .firestore()
         .collection("user")
         .get()
-        .then((querySnapshot) => {  //Notice the arrow funtion which bind `this` automatically.
+        .then((querySnapshot) => { 
             querySnapshot.forEach(function(doc) {
-                items.push(doc.data());
+                users.push(doc.data());
             });
-            this.setState({ items: items });   //set data in state here
+            this.setState({ users: users });   
         });
-        //console.log(this.state?.items[0]);
 
         /*var docRef = firebase.firestore().collection("user").doc("PUN4hGQNboe1nN5VyUoc");
         docRef.get().then(function(doc) {
@@ -51,10 +49,8 @@ class Header extends React.Component {
         });
     }
 
-    render(){
-        console.log(this.state);
-        
-        const {hour, items} = this.state;
+    render(){        
+        const {hour, users} = this.state;
         return (
           <div className='header'>
             <div className='aanspreking'>
@@ -63,13 +59,13 @@ class Header extends React.Component {
                 : `Goedeavond ` }
             </div>
             <div className='naam'>
-            {items && items.length > 0 && items.map(item => (
+            {users && users.length > 0 && users.map(item => (
                 <p>{item.name}</p>
             ))}
             </div>
           </div>
         );
-      }
+    }
 }
 
 export default Header;

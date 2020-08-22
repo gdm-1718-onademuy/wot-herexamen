@@ -3,20 +3,17 @@ import './waterpage.styles.scss';
 import { Link } from 'react-router-dom';
 import firebase from '../../firebase';
 
-
 class Waterpage extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            filling: false,
-            lastone: "",
             items: [],
             boodschappen: [],
             bijvullen: null,
             stopzetten: null,
         }
         
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.bijvullen = this.bijvullen.bind(this);
         this.stopzetten = this.stopzetten.bind(this);
     }
 
@@ -48,10 +45,9 @@ class Waterpage extends React.Component {
         });
     }
 
-    handleSubmit = (e) => {
+    bijvullen = (e) => {
         e.preventDefault();
         const db = firebase.firestore();
-
         var currentDate = new Date();
 
         if(this.state.bijvullen){
@@ -99,15 +95,13 @@ class Waterpage extends React.Component {
     }
 
     render(){
-        const {status, items, bijvullen, stopzetten} = this.state;
-        console.log(this.state);
-
+        const {items, bijvullen, stopzetten} = this.state;
         return(
             <div className='waterpage'>
                 <div className="pagetitle green">WATERTOEVOER</div>
                 <div className="back"><Link to='/'>Ga terug</Link></div>
                 
-                    <form onSubmit={this.handleSubmit} className= {bijvullen ? "changes aan" : "changes uit"}>
+                    <form onSubmit={this.bijvullen} className= {bijvullen ? "changes aan" : "changes uit"}>
                         {bijvullen ?
                             <input type="submit" className="boodschap manueel oranje" value="MANUEEL BIJVULLEN"/>
                         :
@@ -121,7 +115,7 @@ class Waterpage extends React.Component {
                     :
                         <input type="submit" className="boodschap stopzetten groen" value="SYSTEEM AUTOMATISCH"/>
                     }
-                            </form>
+                    </form>
 
                     <div className="tussentitel">Laatste bijvulling</div>
                     <div className="tablesettings">
@@ -129,21 +123,17 @@ class Waterpage extends React.Component {
                             <tr>
                                 <th>Datum</th>
                                 <th>Wijze</th>
-
                             </tr>
 
                             {items && items.length > 0 && items.map(item => (
                                 <tr>
                                     <td>{JSON.stringify(item.datum.toDate().getDate())}/{JSON.stringify(item.datum.toDate().getMonth())}/{JSON.stringify(item.datum.toDate().getFullYear())} {JSON.stringify(item.datum.toDate().getHours()).padStart(2, "0")}:{JSON.stringify(item.datum.toDate().getMinutes()).padStart(2, "0")}</td>
                                     <td>{item.manier}</td>
-
                                 </tr>
                             ))}
                         </table>
                     </div>
                 <div className="geschiedenis"><Link to='/geschiedenis'>GESCHIEDENIS</Link></div>
-
-
             </div> 
         );
     }

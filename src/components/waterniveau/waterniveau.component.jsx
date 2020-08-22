@@ -1,4 +1,3 @@
-//import React, { useState } from 'react';
 import React from 'react';
 import './waterniveau.styles.scss';
 import firebase from '../../firebase';
@@ -7,7 +6,6 @@ class Waterniveau extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            //status: null, //okay or something else
             boodschappen: [],
             stopzetten: null,
         }
@@ -24,7 +22,6 @@ class Waterniveau extends React.Component {
                 boodschappen.push(doc.data());
             });
             this.setState({ boodschappen: boodschappen });   //set data in state here
-            //this.setState({bijvullen: this.state.boodschappen[0].manueleAanvraag})
             this.setState({stopzetten: this.state.boodschappen[0].manueleStop})
         });
     }
@@ -32,8 +29,6 @@ class Waterniveau extends React.Component {
     render(){
         //make de error pinking
         const {stopzetten} = this.state;
-        console.log(this.state);
-
         return(
             <div>
                     {stopzetten === false ? 

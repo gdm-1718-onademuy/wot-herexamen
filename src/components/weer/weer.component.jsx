@@ -21,10 +21,6 @@ class Weer extends React.Component {
     }
 
     render(){
-        //<div className="maxmin">Max: {Math.round(this.state.weather?.daily?[0].temp.max)}° Min: {Math.round(this.state.weather?.daily?.temp.min)}°</div>  
-        //if(this.state.weather.length > 0){
-
-        //als er geen regen is (null): doe 0
         var now = new Date();
         var weekday = now.getDay();
         console.log(weekday);
@@ -72,7 +68,6 @@ class Weer extends React.Component {
                                     </div>
                             );
                             }})}
-
                 </div>
             </div> 
         );

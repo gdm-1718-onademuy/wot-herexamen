@@ -2,15 +2,12 @@ import React from 'react';
 import './instellingenpage.styles.scss';
 import { Link } from 'react-router-dom';
 import firebase from '../../firebase';
-//import arrowleft from '../../images/arrow-left.svg';
-//import arrowleft2 from '../../images/arrow-left2.svg';
 
 class Instellingenpage extends React.Component {
     constructor(props){
         super(props);
         this.state = {
             newName: "",
-            //showName:"",
             items:[],
         }
         this.handleChange = this.handleChange.bind(this);
@@ -33,25 +30,18 @@ class Instellingenpage extends React.Component {
 
     handleChange = (e) => {
         this.setState({newName: e.target.value});
-        //console.log(this.state);
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
-        //console.log(this.state.newName);
-
         const db = firebase.firestore();
         
         db.collection("user").doc("PUN4hGQNboe1nN5VyUoc").update({
             name: this.state.newName,
         });
-
-        console.log("data added");
-        //this.setState({redirect: "/"});
     }
 
     render(){
-        console.log(this.state);
         const {items} = this.state;
 
         return(
@@ -63,7 +53,6 @@ class Instellingenpage extends React.Component {
                     <div className="formke">
                         {items && items.length > 0 && items.map(item => (
                             <input className="username" name="username" type="text" onChange={this.handleChange} placeholder={item.name} />
-
                         ))}
                         
                     </div>  
