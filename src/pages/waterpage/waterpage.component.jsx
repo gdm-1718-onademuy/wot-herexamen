@@ -56,6 +56,13 @@ class Waterpage extends React.Component {
 
         if(this.state.bijvullen){
             this.setState({bijvullen: false})
+            this.setState({stopzetten: false})  
+            db.collection("boodschap").doc("sQNGeSuqvrAWHEMQVKx6").set({
+                manueleAanvraag: false,
+                manueleStop: false,
+            })
+        } else {
+            this.setState({bijvullen: true})
             this.setState({stopzetten: false})
             db.collection("watertoevoer").add(
                 {
@@ -63,16 +70,8 @@ class Waterpage extends React.Component {
                 datum: currentDate,
                 manier: "manueel",
             });
-        
             db.collection("boodschap").doc("sQNGeSuqvrAWHEMQVKx6").set({
                 manueleAanvraag: true,
-                manueleStop: false,
-            })
-        } else {
-            this.setState({bijvullen: true})
-            this.setState({stopzetten: false})
-            db.collection("boodschap").doc("sQNGeSuqvrAWHEMQVKx6").set({
-                manueleAanvraag: false,
                 manueleStop: false,
             })
         }
@@ -82,10 +81,21 @@ class Waterpage extends React.Component {
         e.preventDefault();
         const db = firebase.firestore();
 
-        db.collection("boodschap").doc("sQNGeSuqvrAWHEMQVKx6").set({
-            manueleAanvraag: false,
-            manueleStop: true,
-        })
+        if(this.state.stopzetten){
+            this.setState({bijvullen: false})
+            this.setState({stopzetten: false})
+            db.collection("boodschap").doc("sQNGeSuqvrAWHEMQVKx6").set({
+                manueleAanvraag: false,
+                manueleStop: false,
+            })
+        } else {
+            this.setState({bijvullen: false})
+            this.setState({stopzetten: true})
+            db.collection("boodschap").doc("sQNGeSuqvrAWHEMQVKx6").set({
+                manueleAanvraag: false,
+                manueleStop: true,
+            })
+        }
     }
 
     render(){
@@ -97,17 +107,21 @@ class Waterpage extends React.Component {
                 <div className="pagetitle">WATERTOEVOER</div>
                 <div className="back"><Link to='/'>Ga terug</Link></div>
                 
-                    <form onSubmit={this.handleSubmit} className= {bijvullen ? "bijvulling aan" : "bijvulling uit"}>
+                    <form onSubmit={this.handleSubmit} className= {bijvullen ? "changes aan" : "changes uit"}>
                         {bijvullen ?
-                            <input type="submit" className="manueel grijs" value="MANUEEL BIJVULLEN"/>
-                        :
                             <input type="submit" className="manueel oranje" value="MANUEEL BIJVULLEN"/>
+                        :
+                            <input type="submit" className="manueel grijs" value="MANUEEL BIJVULLEN"/>
                         }
                     </form>
 
-                    <form onSubmit={this.stopzetten}>
-                            <input type="submit" className="stopzetten" value="STOPZETTEN BIJVULLING"/>
-                    </form>
+                    <form onSubmit={this.stopzetten} className= {stopzetten ? "changes aan" : "changes uit"}>
+                    {stopzetten ?
+                        <input type="submit" className="stopzetten rood" value="SYSTEEM UITGESCHAKELD"/>
+                    :
+                        <input type="submit" className="stopzetten groen" value="AUTOMATISCH SYSTEEM"/>
+                    }
+                            </form>
 
                     <div className="tussentitel">Laatste bijvulling</div>
                     <div className="tablesettings">
