@@ -6,11 +6,12 @@ class Verlichting extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            verlichting: false,
+            verlichting: null,
+            items: [],
         }
     }
 
-    componentDidMount() {
+    /*componentDidMount() {
         console.log("printing the data");
         firebase
         .firestore()
@@ -26,6 +27,21 @@ class Verlichting extends React.Component {
             }
         }).catch(function(error) {
             console.log("Error getting document:", error);
+        });
+    }*/
+
+    componentDidMount() {
+        var items = [];
+        firebase
+        .firestore()
+        .collection("verlichting")
+        .get()
+        .then((querySnapshot) => {  //Notice the arrow funtion which bind `this` automatically.
+            querySnapshot.forEach(function(doc) {
+                items.push(doc.data());
+            });
+            this.setState({ items: items });   //set data in state here
+            this.setState({verlichting: this.state.items[0].aan});
         });
     }
     
@@ -43,7 +59,7 @@ class Verlichting extends React.Component {
         } else {
             this.setState({verlichting: true});
             db.collection("verlichting").doc("OjgC8T12rslWt7J3XbHp").update({
-                aan: false,
+                aan: true,
             });
         }
     }

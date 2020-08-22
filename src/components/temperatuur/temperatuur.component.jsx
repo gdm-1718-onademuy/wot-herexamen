@@ -6,10 +6,11 @@ class Temperatuur extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            temperatuur: 3,
+            temperatuur: null,
+            items: [],
         }
     }
-    componentDidMount() {
+    /*componentDidMount() {
         firebase
         .firestore()
         .collection("temperatuur").doc("2cOJQ2xdZRPQqqas64S1")
@@ -25,18 +26,35 @@ class Temperatuur extends React.Component {
         }).catch(function(error) {
             console.log("Error getting document:", error);
         });
+    }*/
+
+    componentDidMount() {
+        var items = [];
+        firebase
+        .firestore()
+        .collection("temperatuur")
+        .get()
+        .then((querySnapshot) => {  //Notice the arrow funtion which bind `this` automatically.
+            querySnapshot.forEach(function(doc) {
+                items.push(doc.data());
+            });
+            this.setState({ items: items });   //set data in state here
+        });
     }
 
     render(){
         console.log(this.state);
-        
+        const {items} = this.state;
         //const {items} = this.state;
         return (
 
             <div className='temperatuur'>
+                  {items && items.length > 0 && items.map(item => (
                 <div className="titlebig">
-                    {Math.round(this.state.temperatuur)}°
+                    {Math.round(item.graden)}°
                 </div>
+                ))}
+                
                 <div className="omschrijving">Temperatuur</div>
             </div>
         );
