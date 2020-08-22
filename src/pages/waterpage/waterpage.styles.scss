@@ -1,0 +1,77 @@
+.waterpage {
+    box-sizing: border-box;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.pagetitle{
+    background-color: #44C67B;
+    //or when not good: #D13000 or #C7C7C7;
+    //width: 100%;
+    padding: 35px;
+    //height: 15vh;
+}
+
+.back{
+    text-align: left;
+    padding: 15px 30px;
+    color: black;
+    font-size: 12px;
+    //border: 1px solid black;
+    text-decoration: underline;
+} 
+
+.statuswaterniveau{
+    text-align: left;
+    padding: 5px 30px;
+}
+
+.manueel {
+    background-color: #FF8900;
+    height: 55px;
+    color: white;
+    width: 83%;
+    padding: 0px 0px 0px 0px;
+    margin: 140px 30px 5px 30px;
+    border-radius: 10px;
+    font-weight: 500;
+    box-shadow: 0px 4px 10px grey;
+}
+.stopzetten {
+    background-color: #D13000;;
+    //border: 4px solid red;
+    height: 55px;
+    width: 83%;
+    //color: white;
+    padding: 0px 0px 0px 0px;
+    margin: 10px 30px 5px 30px;
+    border-radius: 10px;
+    font-weight: 500;
+    box-shadow: 0px 4px 10px grey;
+    color: white;
+}
+
+.geschiedenis {
+    //background-color: #FFC400;
+    border: 2px solid #FFC400;
+    height: 35px;
+    color: white;
+    padding: 15px 0px 0px 0px;
+    margin: 120px 30px 5px 30px;
+    border-radius: 10px;
+    font-weight: 500;
+    box-shadow: 0px 4px 10px grey;
+}
+
+input[type=submit] {
+    border: none;
+    letter-spacing: 0.1em;
+    font-size: 16px;
+    font-weight: 500;
+    
+
+}
+
+
