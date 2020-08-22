@@ -49,10 +49,10 @@ class Temperatuur extends React.Component {
         return (
 
             <div className='temperatuur'>
-                  {items && items.length > 0 && items.map(item => (
-                <div className="titlebig">
-                    {Math.round(item.graden)}°
-                </div>
+                {items && items.length > 0 && items.map(item => (
+                    <div className="titlebig">
+                        {Math.round(item.graden)}°
+                    </div>
                 ))}
                 
                 <div className="omschrijving">Temperatuur</div>

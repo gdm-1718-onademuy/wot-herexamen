@@ -9,8 +9,9 @@ class Waterpage extends React.Component {
         super(props);
         this.state = {
             filling: false,
-            status: "",
             lastone: "",
+            items: [],
+            boodschappen: [],
         }
         
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,7 +22,7 @@ class Waterpage extends React.Component {
         var items = [];
         firebase
         .firestore()
-        .collection("watertoevoer").orderBy("datum", "desc")
+        .collection("watertoevoer").orderBy("datum", "desc").limit(1)
         .get()
         .then((querySnapshot) => {  //Notice the arrow funtion which bind `this` automatically.
             querySnapshot.forEach(function(doc) {
@@ -61,12 +62,12 @@ class Waterpage extends React.Component {
     }
 
     render(){
-        const {status} = this.state;
+        const {status, items} = this.state;
         console.log(this.state);
 
         return(
             <div className='waterpage'>
-                <div className="pagetitle">WATERNIVEAU<br></br>{status}</div>
+                <div className="pagetitle">WATERTOEVOER</div>
                 <div className="back"><Link to='/'>Ga terug</Link></div>
                 
                     <form onSubmit={this.handleSubmit}>
@@ -76,6 +77,25 @@ class Waterpage extends React.Component {
                     <form onSubmit={this.stopzetten}>
                             <input type="submit" className="stopzetten" value="STOPZETTEN BIJVULLING"/>
                     </form>
+
+                    <div className="tussentitel">Laatste waterbijvulling</div>
+                    <div className="tablesettings">
+                        <table>
+                            <tr>
+                                <th>Datum</th>
+                                <th>Wijze</th>
+
+                            </tr>
+
+                            {items && items.length > 0 && items.map(item => (
+                                <tr>
+                                    <td>{JSON.stringify(item.datum.toDate().getDate())}/{JSON.stringify(item.datum.toDate().getMonth())}/{JSON.stringify(item.datum.toDate().getFullYear())} {JSON.stringify(item.datum.toDate().getHours()).padStart(2, "0")}:{JSON.stringify(item.datum.toDate().getMinutes()).padStart(2, "0")}</td>
+                                    <td>{item.manier}</td>
+
+                                </tr>
+                            ))}
+                        </table>
+                    </div>
                 <div className="geschiedenis"><Link to='/geschiedenis'>GESCHIEDENIS</Link></div>
 
 

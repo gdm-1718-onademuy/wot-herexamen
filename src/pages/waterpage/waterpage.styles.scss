@@ -34,7 +34,7 @@
     color: white;
     width: 83%;
     padding: 0px 0px 0px 0px;
-    margin: 140px 30px 5px 30px;
+    margin: 40px 30px 5px 30px;
     border-radius: 10px;
     font-weight: 500;
     box-shadow: 0px 4px 10px grey;
@@ -46,7 +46,7 @@
     width: 83%;
     //color: white;
     padding: 0px 0px 0px 0px;
-    margin: 10px 30px 5px 30px;
+    margin: 10px 30px 100px 30px;
     border-radius: 10px;
     font-weight: 500;
     box-shadow: 0px 4px 10px grey;
@@ -59,7 +59,7 @@
     height: 35px;
     color: white;
     padding: 15px 0px 0px 0px;
-    margin: 120px 30px 5px 30px;
+    margin: 0px 30px 5px 30px;
     border-radius: 10px;
     font-weight: 500;
     box-shadow: 0px 4px 10px grey;
@@ -70,7 +70,12 @@ input[type=submit] {
     letter-spacing: 0.1em;
     font-size: 16px;
     font-weight: 500;
-    
+}
+
+.tussentitel {
+    text-align: left;
+    margin: 0px 30px 0px 30px;
+    font-size: 14px;
 
 }
 
