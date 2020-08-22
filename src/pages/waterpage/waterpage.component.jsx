@@ -111,7 +111,7 @@ class Waterpage extends React.Component {
                         {bijvullen ?
                             <input type="submit" className="manueel oranje" value="MANUEEL BIJVULLEN"/>
                         :
-                            <input type="submit" className="manueel grijs" value="MANUEEL BIJVULLEN"/>
+                            <input type="submit" className="manueel oranje" value="MANUEEL BIJVULLEN"/>
                         }
                     </form>
 
@@ -119,7 +119,7 @@ class Waterpage extends React.Component {
                     {stopzetten ?
                         <input type="submit" className="stopzetten rood" value="SYSTEEM UITGESCHAKELD"/>
                     :
-                        <input type="submit" className="stopzetten groen" value="AUTOMATISCH SYSTEEM"/>
+                        <input type="submit" className="stopzetten groen" value="SYSTEEM AUTOMATISCH"/>
                     }
                             </form>
 

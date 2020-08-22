@@ -2,7 +2,7 @@
     font-weight: 500;
     padding: 15px 0px 0px 0px;
     height: 60px;
-    margin: 5px 30px;
+    //margin: 5px 30px;
     border-radius: 10px;
     font-weight: 500;
     box-shadow: 0px 4px 10px grey;
@@ -15,6 +15,12 @@
 .red {
     background-color: #D13000;
     //animation: blinker 1.5s ease infinite;
+    box-shadow: 0px 4px 10px grey;
+}
+
+.grey {
+    background-color: #C7C7C7;
+    animation: blinker 1.5s ease infinite;
     box-shadow: 0px 4px 10px grey;
 }
 
